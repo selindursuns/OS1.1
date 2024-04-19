@@ -2,6 +2,8 @@
 
 const byte enablePin = 8;
 AccelStepper stepper(AccelStepper::DRIVER, 2, 5); 
+//AccelStepper stepper(AccelStepper::DRIVER, 3, 6); 
+//AccelStepper stepper(AccelStepper::DRIVER, 4, 7); 
 
 void setup() {
     Serial.begin(9600); 
@@ -34,3 +36,4 @@ void loop() {
         stepper.run();
     }
 }
+//add another motor code here for 
