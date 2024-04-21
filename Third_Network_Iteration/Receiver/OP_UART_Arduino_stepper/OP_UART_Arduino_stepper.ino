@@ -75,14 +75,14 @@ void parseData() {
     Serial.print("ID: "); Serial.println(id);
     Serial.print("Angle: "); Serial.println(angle);
 
-    long targetPosition = map(angle, 0, 180, 0, 180);
+    long targetPosition = map(angle, 0, 180, 0, 10000);
 //    long targetPosition2 = map(angle, 0, 180, 0, 720);// Map angle to steps (modify as needed)
 
-    if (id == 3) {
-      stepper1.moveTo(targetPosition);
+    if (id == 2) {
+      stepper2.moveTo(targetPosition);
       Serial.print("Stepper 1 moving to: "); Serial.println(targetPosition);
     } else if (id == 1) {
-      stepper2.moveTo(targetPosition);
+      stepper1.moveTo(targetPosition);
       Serial.print("Stepper 2 moving to: "); Serial.println(targetPosition);
     }
   } else {
