@@ -3,8 +3,8 @@
 // Define stepper motor connections and stepper object
 const byte enablePin1 = 8;  // Enable pin for the first stepper motor
 const byte enablePin2 = 9;  // Enable pin for the second stepper motor
-AccelStepper stepper2(AccelStepper::DRIVER, 2, 5);  // Pin 2 = step, Pin 5 = direction
-AccelStepper stepper1(AccelStepper::DRIVER, 3, 6);  // Pin 3 = step, Pin 6 = direction
+AccelStepper stepper1(AccelStepper::DRIVER, 2, 5);  // Pin 2 = step, Pin 5 = direction
+AccelStepper stepper2(AccelStepper::DRIVER, 3, 6);  // Pin 3 = step, Pin 6 = direction
 
 char inputBuffer[32];  // Buffer to hold incoming data
 bool newData = false;  // Flag to check if new data has been read
@@ -19,10 +19,10 @@ void setup() {
   digitalWrite(enablePin2, LOW);  // Enable the second stepper motor
 
   // Setup the stepper motors
-  stepper1.setMaxSpeed(6000);
-  stepper1.setAcceleration(8000);
-  stepper2.setMaxSpeed(200);
-  stepper2.setAcceleration(400);
+  stepper1.setMaxSpeed(200);
+  stepper1.setAcceleration(400);
+  stepper2.setMaxSpeed(5000);
+  stepper2.setAcceleration(1000);
 
   stepper1.setCurrentPosition(0);
   stepper2.setCurrentPosition(0);
