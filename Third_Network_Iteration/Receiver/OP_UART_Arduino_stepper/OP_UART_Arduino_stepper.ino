@@ -19,8 +19,8 @@ void setup() {
   digitalWrite(enablePin2, LOW);  // Enable the second stepper motor
 
   // Setup the stepper motors
-  stepper1.setMaxSpeed(200);
-  stepper1.setAcceleration(400);
+  stepper1.setMaxSpeed(100);
+  stepper1.setAcceleration(50);
   stepper2.setMaxSpeed(5000);
   stepper2.setAcceleration(1000);
 
@@ -75,15 +75,15 @@ void parseData() {
     Serial.print("ID: "); Serial.println(id);
     Serial.print("Angle: "); Serial.println(angle);
 
-    long targetPosition = map(angle, 0, 180, 0, 10000);
-//    long targetPosition2 = map(angle, 0, 180, 0, 720);// Map angle to steps (modify as needed)
+    long targetPosition = map(angle, 0, 180, 0, 5000);
+    long targetPosition2 = map(angle, 0, 180, 0, 500);// Map angle to steps (modify as needed)
 
-    if (id == 2) {
+    if (id == 3 ) {
       stepper2.moveTo(targetPosition);
-      Serial.print("Stepper 1 moving to: "); Serial.println(targetPosition);
-    } else if (id == 1) {
-      stepper1.moveTo(targetPosition);
       Serial.print("Stepper 2 moving to: "); Serial.println(targetPosition);
+    } else if (id == 1 ) {
+      stepper1.moveTo(targetPosition2);
+      Serial.print("Stepper 1 moving to: "); Serial.println(targetPosition);
     }
   } else {
     Serial.println("Error: Data not properly formatted.");
